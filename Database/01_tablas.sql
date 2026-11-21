@@ -21,3 +21,8 @@ CREATE TABLE clientes_a (
 CREATE INDEX ix_clientes_a_nombre ON clientes_a(apellidos, nombres);
 
 COMMIT;
+
+/* 
+INSERT INTO usuarios(nombre_usuario, password_hash, activo)
+VALUES ('admin', 'REEMPLAZAR_POR_HASH_PBKDF2_GENERADO', 'S');
+COMMIT;*/   
