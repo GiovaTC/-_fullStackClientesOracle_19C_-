@@ -10,4 +10,6 @@ namespace Backend.Dtos
         [Required, StringLength(128, MinimumLength = 12)]
         public string Password { get; set; } = "";  
     }
+
+    public sealed record LoginResponse(string Token, string Usuario, DateTime Expira);
 }
