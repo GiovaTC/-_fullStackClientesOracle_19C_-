@@ -4,7 +4,7 @@ using Backend.Repositories;
 using Backend.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
-
+/*
 if (Environment.GetEnvironmentVariable("GENERAR_HASH") == "1")
 {
     string hash =
@@ -16,7 +16,7 @@ if (Environment.GetEnvironmentVariable("GENERAR_HASH") == "1")
     Console.WriteLine(hash);
 
     return;
-}
+}*/
 
 var builder = WebApplication.CreateBuilder(args);
 
