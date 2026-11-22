@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de clientes | Oracle 19c</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <main class="contenedor">
+        <header>
+            <p class="etiqueta">FULL STACK · ORACLE 19C</p>
+            <h1>Administración de clientes</h1>
+            <p>Frontend JavaScript conectado a ASP.NET Core Web API.</p>
+        </header>
+
+        <section id="loginPanel" class="panel">
+            <h2>Iniciar sesión</h2>
+            <form id="loginForm">
+                <label>Usuario<input id="usuario" required minlength="3" autocomplete="username"></label>
+                <label>Contraseña<input id="password" type="password" required minlength="12" autocomplete="current-password"></label>
+                <button type="submit">Ingresar</button>
+            </form>
+        </section>
+
+        <section id="appPanel" class="oculto">
+            <div class="barra">
+                <h2>Clientes</h2>
+                <button id="logoutBtn" class="secundario">Cerrar sesión</button>
+            </div>
+
+            <section class="panel">
+                <h3 id="formTitle">Registrar cliente</h3>
+                <form id="clienteForm">
+                    <input type="hidden" id="idCliente">
+                    <div class="campos">
+                        <label>Nombres<input id="nombres" maxlength="100" required minlength="2"></label>
+                        <label>Apellidos<input id="apellidos" maxlength="100" required minlength="2"></label>
+                        <label>Correo electrónico<input id="correo" type="email" maxlength="150" required></label>
+                        <label>Teléfono<input id="telefono" maxlength="30"></label>
+                    </div>
+                    <div class="acciones">
+                        <button type="submit" id="guardarBtn">Guardar cliente</button>
+                        <button type="button" id="cancelarBtn" class="secundario">Limpiar</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="panel">
+                <div class="barra">
+                    <h3>Listado de clientes</h3>
+                    <button id="recargarBtn" class="secundario">Actualizar lista</button>
+                </div>
+                <div class="tabla-contenedor">
+                    <table>
+                        <thead><tr><th>ID</th><th>Nombres</th><th>Apellidos</th><th>Correo</th><th>Teléfono</th><th>Acciones</th></tr></thead>
+                        <tbody id="clientesBody"></tbody>
+                    </table>
+                </div>
+            </section>
+        </section>
+        <p id="mensaje" role="status" aria-live="polite"></p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html> 
