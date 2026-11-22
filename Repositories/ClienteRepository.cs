@@ -40,6 +40,33 @@ namespace Backend.Repositories
             var list = new List<ClienteResponse>();
             while (await r.ReadAsync()) list.Add(Map(r));
             return list;
+        }
+        
+        public async Task<ClienteResponse?> Obtener(int id)
+        {
+            await using var cn = factory.Create();
+            await cn.OpenAsync();
+            await using var cmd = new OracleCommand("pkg_clientes.obtener", cn)
+            { CommandType = CommandType.StoredProcedure };
+            cmd.Parameters.Add(In("p_id", OracleDbType.Int32, id));
+            cmd.Parameters.Add("p_resultado", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+            await using var r = await cmd.ExecuteReaderAsync();
+            return await r.ReadAsync() ? Map(r) : null;
+        }
+        
+        public async Task<int> Insertar(ClienteRequest x)
+        {
+            await using var cn = factory.Create();
+            await cn.OpenAsync();
+            await using var cmd = new OracleCommand("pkg_clientes.insertar", cn)
+            { CommandType = CommandType.StoredProcedure };
+            cmd.Parameters.Add(In("p_nombres", OracleDbType.Varchar2, x.Nombres, 100));
+            cmd.Parameters.Add(In("p_apellidos", OracleDbType.Varchar2, x.Apellidos, 100));
+            cmd.Parameters.Add(In("p_correo", OracleDbType.Varchar2, x.Correo, 150));
+            cmd.Parameters.Add(In("p_telefono", OracleDbType.Varchar2, x.Telefono, 30));
+            cmd.Parameters.Add(Out("p_id", OracleDbType.Int32));
+            await cmd.ExecuteNonQueryAsync();
+            return Convert.ToInt32(cmd.Parameters["p_id"].Value.ToString());
         }   
     }
 }
