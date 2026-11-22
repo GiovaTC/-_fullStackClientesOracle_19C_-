@@ -5,6 +5,19 @@ using Backend.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 
+if (Environment.GetEnvironmentVariable("GENERAR_HASH") == "1")
+{
+    string hash =
+        Backend.Security.PasswordHasher.Hash(
+            "UnaClaveLargaYUnica!2026"
+        );  
+
+    Console.WriteLine("HASH GENERADO:");
+    Console.WriteLine(hash);
+
+    return;
+}
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
