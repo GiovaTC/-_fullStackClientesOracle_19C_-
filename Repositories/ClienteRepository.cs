@@ -67,6 +67,34 @@ namespace Backend.Repositories
             cmd.Parameters.Add(Out("p_id", OracleDbType.Int32));
             await cmd.ExecuteNonQueryAsync();
             return Convert.ToInt32(cmd.Parameters["p_id"].Value.ToString());
-        }   
-    }
+        }
+
+        public async Task<bool> Actualizar(int id, ClienteRequest x)
+        {
+            await using var cn = factory.Create();
+            await cn.OpenAsync();
+            await using var cmd = new OracleCommand("pkg_clientes.actualizar", cn)
+            { CommandType = CommandType.StoredProcedure };
+            cmd.Parameters.Add(In("p_id", OracleDbType.Int32, id));
+            cmd.Parameters.Add(In("p_nombres", OracleDbType.Varchar2, x.Nombres, 100));
+            cmd.Parameters.Add(In("p_apellidos", OracleDbType.Varchar2, x.Apellidos, 100));
+            cmd.Parameters.Add(In("p_correo", OracleDbType.Varchar2, x.Correo, 150));
+            cmd.Parameters.Add(In("p_telefono", OracleDbType.Varchar2, x.Telefono, 30));
+            cmd.Parameters.Add(Out("p_filas", OracleDbType.Int32));
+            await cmd.ExecuteNonQueryAsync();
+            return Convert.ToInt32(cmd.Parameters["p_filas"].Value.ToString()) > 0;
+        }
+
+        public async Task<bool> Eliminar(int id)
+        {
+            await using var cn = factory.Create();
+            await cn.OpenAsync();
+            await using var cmd = new OracleCommand("pkg_clientes.eliminar", cn)
+            { CommandType = CommandType.StoredProcedure };
+            cmd.Parameters.Add(In("p_id", OracleDbType.Int32, id));
+            cmd.Parameters.Add(Out("p_filas", OracleDbType.Int32));
+            await cmd.ExecuteNonQueryAsync();
+            return Convert.ToInt32(cmd.Parameters["p_filas"].Value.ToString()) > 0;
+        }
+    }   
 }
