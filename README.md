@@ -6,9 +6,7 @@ FullStackClientesOracle19c:
 <img width="1363" height="767" alt="image" src="https://github.com/user-attachments/assets/83b0262b-28fc-4875-af42-2bb4966139ce" />  
 
 <img width="2558" height="1041" alt="image" src="https://github.com/user-attachments/assets/a9cb07fe-43f5-4ff0-8f29-2c6f20444369" />
-
-<img width="2508" height="1079" alt="image" src="https://github.com/user-attachments/assets/7cd42ad2-2fee-42f5-8ed0-87e37ba16194" />    
-    
+           
 <img width="1362" height="767" alt="image" src="https://github.com/user-attachments/assets/6357d036-a93b-4dcf-9da4-df9059f196f0" />  
 
 <img width="1272" height="1038" alt="image" src="https://github.com/user-attachments/assets/9b745e76-ddc3-44bf-859a-e1f45acc765a" />
