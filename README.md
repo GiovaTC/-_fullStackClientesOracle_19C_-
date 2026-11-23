@@ -16,11 +16,11 @@ FullStackClientesOracle19c:
   
 <img width="944" height="114" alt="image" src="https://github.com/user-attachments/assets/c75d3c5e-0c6f-4a99-98da-cdb315775e53" />  
 
+<img width="1033" height="324" alt="image" src="https://github.com/user-attachments/assets/c20edda8-e4b7-493d-8a69-0721099864cd" />     
+
 <img width="2545" height="1079" alt="image" src="https://github.com/user-attachments/assets/acfdb2a1-3fa0-41ce-bd62-4e142f282e80" />  
 
-<img width="2550" height="1078" alt="image" src="https://github.com/user-attachments/assets/756ba202-7518-46d8-8bd9-d0898b1566fa" />  
-
-<img width="1033" height="324" alt="image" src="https://github.com/user-attachments/assets/c20edda8-e4b7-493d-8a69-0721099864cd" />    
+<img width="2550" height="1078" alt="image" src="https://github.com/user-attachments/assets/756ba202-7518-46d8-8bd9-d0898b1566fa" />     
 
 ```
 
